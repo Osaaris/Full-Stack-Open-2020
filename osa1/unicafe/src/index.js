@@ -5,14 +5,13 @@ const Statistics = (props) => {
   if (props.totalFeedback === 0) {
     return (
       <p>No feedback yet</p>
-    )
+    );
   }
 
   else
     return (
       <div>
         <h2>Statistics</h2>
-
         <table>
           <tbody>
 
@@ -51,7 +50,7 @@ const Statistics = (props) => {
           </tbody>
         </table>
       </div>
-    )
+    );
 }
 
 const StatisticLine = (props) => {
@@ -60,7 +59,7 @@ const StatisticLine = (props) => {
       <div>{props.text}</div>
       <div>{props.value}</div>
     </div>
-  )
+  );
 }
 
 /* sama asia kuin alla oleva Button
@@ -76,7 +75,7 @@ const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>
     {text}
   </button>
-)
+);
 
 const App = () => {
   // tallenna napit omaan tilaansa
@@ -86,7 +85,6 @@ const App = () => {
   const totalFeedback = good + neutral + bad;
   const avarageFeedback = ((good) + (neutral * 0) + (bad * (-1)) / 3).toFixed(2);
   const positiveFeedback = (100 * good / (good + neutral + bad)).toFixed(2) + " %";
-
 
   const increaseGood = () => setGood(good + 1);
   const increaseNeutral = () => setNeutral(neutral + 1);
@@ -104,7 +102,7 @@ const App = () => {
       <Statistics totalFeedback={totalFeedback} avarageFeedback={avarageFeedback}
         positiveFeedback={positiveFeedback} good={good} neutral={neutral} bad={bad} />
     </div>
-  )
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));
